@@ -1,7 +1,14 @@
 package com.fanyayu.android.mynotesapp.entity;
 
+import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.fanyayu.android.mynotesapp.db.DatabaseContract;
+
+import static android.provider.BaseColumns._ID;
+import static com.fanyayu.android.mynotesapp.db.DatabaseContract.getColumnInt;
+import static com.fanyayu.android.mynotesapp.db.DatabaseContract.getColumnString;
 
 public class Note implements Parcelable {
     private int id;
@@ -57,6 +64,12 @@ public class Note implements Parcelable {
     public Note() {
     }
 
+    public Note(Cursor cursor){
+        this.id = getColumnInt(cursor, _ID);
+        this.title = getColumnString(cursor, DatabaseContract.NoteColumns.TITLE);
+        this.description = getColumnString(cursor, DatabaseContract.NoteColumns.DESCRIPTION);
+        this.date = getColumnString(cursor, DatabaseContract.NoteColumns.DATE);
+    }
     protected Note(Parcel in) {
         this.id = in.readInt();
         this.title = in.readString();

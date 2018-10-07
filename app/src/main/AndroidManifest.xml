@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fanyayu.android.mynotesapp">
 
+    <permission android:name="com.fanyayu.android.mynotesapp.READ_DATABASE"
+        android:protectionLevel="normal"/>
+    <permission android:name="com.fanyayu.android.mynotesapp.WRITE_DATABASE"
+        android:protectionLevel="normal"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,6 +21,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".FormAddUpdateActivity"></activity>
+        <provider
+            android:authorities="com.fanyayu.android.mynotesapp"
+            android:name=".provider.NotesProvider"
+            android:exported="true"
+            android:readPermission="com.fanyayu.android.mynotesapp.READ_DATABASE"
+            android:writePermission="com.fanyayu.android.mynotesapp.WRITE_DATABASE" />
     </application>
 
 </manifest>

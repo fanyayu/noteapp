@@ -1,10 +1,12 @@
-package com.fanyayu.android.mynotesapp;
+package com.fanyayu.android.mynotesapp.db;
 
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.fanyayu.android.mynotesapp.DatabaseContract.NoteColumns;
+
+import com.fanyayu.android.mynotesapp.db.DatabaseContract;
+import com.fanyayu.android.mynotesapp.db.DatabaseContract.NoteColumns;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
